@@ -1,0 +1,45 @@
+name: Gestion de Clientes
+
+on:
+  # Estos flujos se ejecutarán en eventos push y pull_request
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  crear_cliente:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Crear nuevo cliente
+        run: |
+          echo "Se ha creado un nuevo cliente."
+          echo "Notificando a los miembros del equipo..."
+
+  actualizar_cliente:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Actualizar cliente recurrente
+        run: |
+          echo "Un cliente recurrente ha sido actualizado."
+          echo "Notificando a los miembros del equipo..."
+
+  consultar_cliente:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Consulta de cliente
+        run: |
+          echo "Un cliente ha sido consultado."
+          echo "Notificando a los miembros del equipo..."
